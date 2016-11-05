@@ -1,0 +1,129 @@
+Humbug running test suite to generate logs and code coverage data...
+Humbug has completed the initial test run successfully.
+Tests: 1 Line Coverage: 100.00%
+Humbug is analysing source files...
+Mutation Testing is commencing on 1 files...
+(.: killed, M: escaped, S: uncovered, E: fatal error, T: timed out)
+TMMTMT
+6 mutations were generated:
+       0 mutants were killed
+       0 mutants were not covered by tests
+       3 covered mutants were not detected
+       0 fatal errors were encountered
+       3 time outs were encountered
+
+Metrics:
+    Mutation Score Indicator (MSI): 50%
+    Mutation Code Coverage: 100%
+    Covered Code MSI: 50%
+
+Remember that some mutants will inevitably be harmless (i.e. false positives).
+Time: 31.35 seconds Memory: 5.00MB
+Humbug results are being logged as JSON to: humbuglog.json
+Humbug results are being logged as TEXT to: humbuglog.txt
+
+------
+Escapes
+------
+
+
+1) \Humbug\Mutator\ConditionalNegation\GreaterThan
+Diff on \Letscodehu\RomanNumber::convert() in /mnt/d/sandbox/romannumber/src/RomanNumber.php:
+--- Original
++++ New
+@@ @@
+         $return = ''; 
+-        while($arabic > 0) 
++        while($arabic <= 0) 
+         { 
+             foreach($this->table as $rom=>$arb) 
+             { 
+                 if($arabic >= $arb) 
+                 { 
+                     $arabic -= $arb; 
+
+
+2) \Humbug\Mutator\Number\IntegerValue
+Diff on \Letscodehu\RomanNumber::convert() in /mnt/d/sandbox/romannumber/src/RomanNumber.php:
+--- Original
++++ New
+@@ @@
+         $return = ''; 
+-        while($arabic > 0) 
++        while($arabic > 1) 
+         { 
+             foreach($this->table as $rom=>$arb) 
+             { 
+                 if($arabic >= $arb) 
+                 { 
+                     $arabic -= $arb; 
+
+
+3) \Humbug\Mutator\ConditionalNegation\GreaterThanOrEqualTo
+Diff on \Letscodehu\RomanNumber::convert() in /mnt/d/sandbox/romannumber/src/RomanNumber.php:
+--- Original
++++ New
+@@ @@
+             { 
+-                if($arabic >= $arb) 
++                if($arabic < $arb) 
+                 { 
+                     $arabic -= $arb; 
+                     $return .= $rom; 
+                     break; 
+                 }
+             } 
+
+
+------
+Timeouts
+------
+
+
+1) \Humbug\Mutator\ConditionalBoundary\GreaterThan
+Diff on \Letscodehu\RomanNumber::convert() in /mnt/d/sandbox/romannumber/src/RomanNumber.php:
+--- Original
++++ New
+@@ @@
+         $return = ''; 
+-        while($arabic > 0) 
++        while($arabic >= 0) 
+         { 
+             foreach($this->table as $rom=>$arb) 
+             { 
+                 if($arabic >= $arb) 
+                 { 
+                     $arabic -= $arb; 
+
+
+2) \Humbug\Mutator\ConditionalBoundary\GreaterThanOrEqualTo
+Diff on \Letscodehu\RomanNumber::convert() in /mnt/d/sandbox/romannumber/src/RomanNumber.php:
+--- Original
++++ New
+@@ @@
+             { 
+-                if($arabic >= $arb) 
++                if($arabic > $arb) 
+                 { 
+                     $arabic -= $arb; 
+                     $return .= $rom; 
+                     break; 
+                 }
+             } 
+
+
+3) \Humbug\Mutator\Arithmetic\MinusEqual
+Diff on \Letscodehu\RomanNumber::convert() in /mnt/d/sandbox/romannumber/src/RomanNumber.php:
+--- Original
++++ New
+@@ @@
+                 { 
+-                    $arabic -= $arb; 
++                    $arabic += $arb; 
+                     $return .= $rom; 
+                     break; 
+                 }
+             } 
+         } 
+ 
+
